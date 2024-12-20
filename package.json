@@ -6,7 +6,7 @@
     "url": "http://github.com/The-LukeZ/burningdezibelz"
   },
   "scripts": {
-    "dev": "vite dev --ignore 'node_modules/**/*",
+    "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
