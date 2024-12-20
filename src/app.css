@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    transition: ease all 0.5s;
+  }
+
+  * {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .poppins {
+    font-family: "Poppins", "Open Sans", sans-serif;
+  }
+
+  span {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  td.concertTableCell {
+    padding: 0.8rem 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .un {
+    display: inline-block;
+    padding-bottom: 2px;
+    position: relative;
+  }
+
+  .un::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transform-origin: center;
+    transition:
+      width 0.3s ease-out,
+      left 0.3s ease-out;
+  }
+
+  .un:hover::before {
+    width: 100%;
+    left: 0;
+  }
+
+  .un-force {
+    display: inline-block;
+    padding-bottom: 2px;
+    background-image: linear-gradient(#fff 0 0);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-size: 100% 2px;
+  }
+}
