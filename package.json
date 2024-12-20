@@ -1,7 +1,10 @@
 {
-  "name": "websitev2",
+  "name": "burningdezibelz",
   "version": "0.0.1",
   "type": "module",
+  "repository": {
+    "url": "The-LukeZ/burningdezibelz"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
