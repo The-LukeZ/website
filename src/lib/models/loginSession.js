@@ -10,7 +10,12 @@ const loginSessionSchema = new Schema(
   { timestamps: true },
 );
 
-const LoginSession = model("LoginSession", loginSessionSchema, "loginSessions");
+let LoginSession;
+try {
+  LoginSession = model("LoginSession");
+} catch {
+  LoginSession = model("LoginSession", loginSessionSchema, "loginSessions");
+}
 
 export function invalidateSessions(ipHash = "") {
   let filter = {};
