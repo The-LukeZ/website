@@ -1,5 +1,5 @@
 import { dash_password, dash_username, DB_SECRET, JWT_SECRET } from "$env/static/private";
-import { encryptIP, LoginSession } from "$lib/models/loginSession.js";
+import { encryptIP, LoginSession } from "$lib/models/loginSession";
 import { redirect } from "@sveltejs/kit";
 import jwt from "jsonwebtoken";
 
