@@ -7,6 +7,14 @@ const concertSchema = new Schema({
   location: { type: Schema.Types.ObjectId, required: true },
 });
 
-const Concert = model("Concert", concertSchema, "concerts");
+/**
+ * @type {import("mongoose").Model}
+ */
+let Concert;
+try {
+  Concert = model("Concert");
+} catch {
+  Concert = model("Concert", concertSchema, "concerts");
+}
 
 export { concertSchema, Concert };

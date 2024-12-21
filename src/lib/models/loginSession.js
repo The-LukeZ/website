@@ -10,6 +10,9 @@ const loginSessionSchema = new Schema(
   { timestamps: true },
 );
 
+/**
+ * @type {import("mongoose").Model}
+ */
 let LoginSession;
 try {
   LoginSession = model("LoginSession");
