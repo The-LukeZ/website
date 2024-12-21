@@ -10,6 +10,7 @@ export const prerender = false;
 export async function load({ url }) {
   // TODO: load concerts from a real API
 
+  /** @type {DBModels.Concert[]} */
   let concerts = (await import("$lib/demo_concerts.json")).default;
   const pageNumber = parseInt(new URLSearchParams(url.search).get("page") ?? "1");
 

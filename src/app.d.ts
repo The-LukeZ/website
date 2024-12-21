@@ -21,6 +21,20 @@ declare global {
       province: string;
       country: string;
     }
+
+    interface Concert {
+      _id: string;
+      name: string;
+      date: string;
+      link?: string;
+      location: Location;
+      /**
+       * The tickets link or a string with the tickets information
+       */
+      tickets?: string;
+      abendkasse?: boolean;
+      price?: number;
+    }
   }
 }
 

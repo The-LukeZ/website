@@ -4,26 +4,6 @@
   import SectionWrapper from "$lib/components/SectionWrapper.svelte";
   import dayjs from "dayjs";
 
-  /**
-   * @typedef {Object} Location
-   * @property {string} address
-   * @property {string} city
-   * @property {string} postalCode
-   * @property {string} country
-   * @property {string} county
-   */
-
-  /**
-   * @typedef {Object} Concert
-   * @property {string} _id
-   * @property {string} name
-   * @property {string} date
-   * @property {string} link
-   * @property {Location} location
-   * @property {boolean | undefined} abendkasse
-   * @property {number?} price
-   */
-
   let { data } = $props();
   let concerts = data.concerts;
   let width = $state(1920);
@@ -45,7 +25,7 @@
 
 <!-- <div class="z-[-1] h-[2000px] bg-gradient-to-b from-black to-transparent opacity-90"></div> -->
 
-{#snippet concertRow(/** @type {Concert} */ concert, /** @type {number} */ i)}
+{#snippet concertRow(/** @type {DBModels.Concert} */ concert, /** @type {number} */ i)}
   <tr class="dy-hover content-center items-center">
     <td class="hidden w-10 text-center lg:table-cell">{i + 1}</td>
     <td class="dy-link text-center text-lg font-bold text-primary md:dy-link-hover">

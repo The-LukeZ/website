@@ -3,15 +3,18 @@
     "_id": "banane1",
     "name": "Rockcafe Ringkeller",
     "link": "https://www.rockcafe-ringkeller-zwickau.de/",
-    "date": "2024-12-21T19:00:00.000Z",
+    "date": "2024-12-21T19:30:00.000Z",
     "location": {
+      "_id": "apfel1",
+      "name": "Rockcafe Ringkeller",
       "address": "Dr. Friedrichs-Ring 21a",
       "city": "Zwickau",
       "postalCode": "08058",
       "country": "Deutschland",
-      "county": "Sachsen"
+      "province": "Sachsen"
     },
     "abendkasse": true,
-    "price": 10.123
+    "tickets": null,
+    "price": null
   }
 ]

@@ -1,8 +1,10 @@
-import demoConcerts from "$lib/demo_concerts.json";
+export async function load() {
+  // TODO: Load data from internal API
 
-export function load() {
-  // Load data from internal API
+  /** @type {DBModels.Concert[]} */
+  let concerts = (await import("$lib/demo_concerts.json")).default;
+
   return {
-    concerts: demoConcerts,
+    concerts: concerts,
   };
 }

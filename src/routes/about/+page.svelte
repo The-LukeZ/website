@@ -58,7 +58,7 @@
 
 <svelte:head>
   <title>Über uns | Burning Dezibelz</title>
-  <meta name="description" content="Über uns von Burning Dezibelz" />
+  <meta name="description" content="Informationen über die Band und Mitglieder" />
   <meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -69,8 +69,11 @@
 <div class="container flex max-w-[1500px] flex-col self-center">
   <div class="flex flex-col lg:flex-row-reverse">
     <!-- Bild -->
-    <div class="container mx-8 w-full self-center p-5 lg:max-w-[50%]">
+    <div class="container relative mx-8 w-full self-center p-5 lg:max-w-[50%]">
       <img src="/burningdezibelz_logo.png" alt="Band-Logo" class="mx-auto w-full rounded-2xl object-contain" />
+      <div class="visible absolute bottom-5 right-5 rounded-sm bg-transparent bg-opacity-50 px-2 py-1 italic text-slate-300">
+        Dieses Bild ist noch in Arbeit...
+      </div>
     </div>
 
     <!-- Text -->
