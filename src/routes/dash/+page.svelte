@@ -36,17 +36,6 @@
       tooltip.classList.remove("dy-tooltip");
     }, 1700);
   }
-
-  /**
-   * @typedef {Object} Concert
-   * @property {string} _id
-   * @property {string} name
-   * @property {string} date
-   * @property {string} link
-   * @property {Location} location
-   * @property {boolean | undefined} abendkasse
-   * @property {number?} price
-   */
 </script>
 
 <Navbar withLogoutButton={loggedIn} />
@@ -76,7 +65,7 @@
     </a>
   </div>
 
-  {#snippet concertRow(/** @type {Concert} */ concert)}
+  {#snippet concertRow(/** @type {DBModels.Concert} */ concert)}
     <tr class="dy-hover content-center items-center">
       <td class="hidden w-10 text-center lg:table-cell">
         <div class="dy-tooltip-open dy-tooltip-success" data-tip="✅ Copied" id="copied-{concert._id}">

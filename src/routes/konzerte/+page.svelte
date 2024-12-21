@@ -44,7 +44,7 @@
   function showConcertDetails(id) {
     /** @type {HTMLDialogElement | any} */
     const concert_modal = document.getElementById("concertModal");
-    if (id) {
+    if (id && concerts.some((c) => c._id === id)) {
       concert_modal.showModal();
     } else {
       concert_modal.close();

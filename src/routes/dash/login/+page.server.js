@@ -52,7 +52,7 @@ export const actions = {
     console.log("setting cookie");
     cookies.set("auth_token", token, {
       path: "/",
-      secure: true,
+      // secure: true,
       httpOnly: true,
       sameSite: "strict",
       maxAge: 604_800,
