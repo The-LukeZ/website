@@ -37,7 +37,7 @@
       if (newScrollPos > oldScrollPos && !isHidden) {
         document.querySelector("header")?.classList.add("translate-y-[-105%]");
         isHidden = true;
-      } else {
+      } else if (newScrollPos < oldScrollPos && isHidden) {
         document.querySelector("header")?.classList.remove("translate-y-[-105%]");
         isHidden = false;
       }
