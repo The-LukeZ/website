@@ -95,7 +95,7 @@
 
       <div class="h-10"></div>
 
-      <div class="prose mx-auto space-y-2 text-center text-[1.5rem] font-extralight leading-7 text-base-content">
+      <div class="prose mx-auto space-y-2 text-center font-extralight leading-7 text-base-content md:text-[1.5rem]">
         <p>
           <span class="text-[110%]">Wir sind die <span class="font-bold">Burning Dezibelz</span>!</span><br />
           Eine junge Band aus dem schönen <span class="font-bold">Zwickau</span>, wobei sich "jung" nur auf das Alter der Band
