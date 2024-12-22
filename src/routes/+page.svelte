@@ -99,7 +99,7 @@
         <p>
           <span class="text-[110%]">Wir sind die <span class="font-bold">Burning Dezibelz</span>!</span><br />
           Eine junge Band aus dem schönen <span class="font-bold">Zwickau</span>, wobei sich "jung" nur auf das Alter der Band
-          bezieht, denn uns gibt es seit &lt;platzhalter&gt;.<br />
+          bezieht, denn uns gibt es seit <b>2023</b>.<br />
         </p>
         <p>
           Wir bestehen aus den vier Mitgliedern:
