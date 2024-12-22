@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export const prerender = false;
 
 /**
@@ -12,10 +14,12 @@ export async function load({ url }) {
 
   /** @type {DBModels.Concert[]} */
   let concerts = (await import("$lib/demo_concerts.json")).default;
+  const nowTs = dayjs();
+
   const pageNumber = parseInt(new URLSearchParams(url.search).get("page") ?? "1");
 
   return {
-    concerts: concerts,
+    concerts: concerts.filter((concert) => dayjs(concert.date).isAfter(nowTs)),
     pageNumber: pageNumber,
     highlightedConcert: null,
   };
