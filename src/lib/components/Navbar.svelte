@@ -6,6 +6,7 @@
   let currentPath = $page.url.pathname;
 
   let isOpen = $state(false);
+  let isHidden = $state(false);
   let newScrollPos = $state(0);
   let oldScrollPos = $state(0);
 
@@ -33,10 +34,12 @@
 
   onMount(() => {
     window.addEventListener("scroll", () => {
-      if (newScrollPos > oldScrollPos) {
+      if (newScrollPos > oldScrollPos && !isHidden) {
         document.querySelector("header")?.classList.add("translate-y-[-105%]");
+        isHidden = true;
       } else {
         document.querySelector("header")?.classList.remove("translate-y-[-105%]");
+        isHidden = false;
       }
       oldScrollPos = newScrollPos;
     });
