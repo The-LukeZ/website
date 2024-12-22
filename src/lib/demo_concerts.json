@@ -16,5 +16,21 @@
     "abendkasse": true,
     "tickets": null,
     "price": null
+  },
+  {
+    "_id": "banane2",
+    "name": "Winterparty Tanks MC",
+    "link": "https://www.facebook.com/p/Shepherds-Pub-Zwickau-100057065395629/?locale=de_DE",
+    "date": "2025-02-08T15:00:00.000Z",
+    "location": {
+      "_id": "apfel2",
+      "name": "Sepherds Pub",
+      "address": "Marienthaler Str. 98",
+      "city": "Zwickau",
+      "postalCode": "08060",
+      "country": "Deutschland",
+      "province": "Sachsen"
+    },
+    "price": null
   }
 ]
