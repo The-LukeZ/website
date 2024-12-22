@@ -88,7 +88,7 @@
       </PWrapper>
       <PWrapper>
         Kurz darauf folgte schon der erst Bandmitgliederwechsel. Max, <span class="italic">ehem. Schlagzeuger</span>, verließ
-        aufgrund von Indifferenzen die Band. Kurze Zeit später kam Luca dazu; Er ist bis heute dabei.
+        im Frühjahr 2024 die Band, woraufhin Luca dazu kam; Er ist bis heute dabei.
       </PWrapper>
       <PWrapper>Diese Besetzung hält bis heute an und wir spielen regelmäßig in Zwickau und Umgebung.</PWrapper>
       <PWrapper>
