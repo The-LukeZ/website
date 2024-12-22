@@ -5,12 +5,6 @@
   songs.sort((a, b) => a.title.localeCompare(b.title));
 </script>
 
-<svelte:head>
-  <title>Setlist | Burning Dezibelz</title>
-  <meta name="description" content="Setlist der Burning Dezibelz" />
-  <meta name="robots" content="index, follow" />
-</svelte:head>
-
 <Navbar />
 
 <div class="mt-5">

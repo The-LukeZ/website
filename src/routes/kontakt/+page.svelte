@@ -23,12 +23,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>Kontakt | Burning Dezibelz</title>
-  <meta name="description" content="Kontaktiere Burning Dezibelz" />
-  <meta name="robots" content="noindex" />
-</svelte:head>
-
 <Navbar />
 
 <SiteHeader text={"Kontakt"} />

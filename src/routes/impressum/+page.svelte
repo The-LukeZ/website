@@ -4,12 +4,6 @@
   import SiteHeader from "$lib/components/SiteHeader.svelte";
 </script>
 
-<svelte:head>
-  <title>Impressum | Burning Dezibelz</title>
-  <meta name="description" content="Impressum von Burning Dezibelz" />
-  <meta name="robots" content="noindex" />
-</svelte:head>
-
 <Navbar />
 
 <SiteHeader text="Impressum" />

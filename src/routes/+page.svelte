@@ -9,12 +9,6 @@
   let width = $state(1920);
 </script>
 
-<svelte:head>
-  <title>Home | Burning Dezibelz</title>
-  <meta name="description" content="Burning Dezibelz - Die Band" />
-  <meta name="robots" content="index, follow" />
-</svelte:head>
-
 <svelte:window bind:outerWidth={width} />
 
 <Navbar />

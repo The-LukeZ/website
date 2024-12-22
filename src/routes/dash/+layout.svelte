@@ -1,14 +1,11 @@
 <script>
+  import EmbedInfo from "$lib/components/EmbedInfo.svelte";
   import Footer from "$lib/components/Footer.svelte";
 
   let { children } = $props();
 </script>
 
-<svelte:head>
-  <title>Dashboard | Burning Dezibelz</title>
-  <meta name="description" content="Dashboard" />
-  <meta name="robots" content="noindex" />
-</svelte:head>
+<EmbedInfo siteName="Dashboard" optionalDescription="Dashboard" robots="noindex, nofollow" />
 
 {@render children()}
 
