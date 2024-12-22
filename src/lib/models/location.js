@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 
 const locationSchema = new Schema({
+  name: { type: String, required: true, text: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
   postalCode: { type: String, required: true },
@@ -8,7 +9,7 @@ const locationSchema = new Schema({
   country: { type: String, required: true },
 });
 
-locationSchema.index({ address: 1, city: 1, postalCode: 1, province: 1, country: 1 }, { unique: true });
+locationSchema.index({ name: 1, address: 1, city: 1, postalCode: 1, province: 1, country: 1 }, { unique: true });
 
 /**
  * @type {import("mongoose").Model}
