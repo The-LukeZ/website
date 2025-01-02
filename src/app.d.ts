@@ -38,6 +38,7 @@ declare global {
       tickets?: string;
       abendkasse?: boolean;
       price?: number;
+      notes?: string[];
     }
   }
 }
