@@ -56,12 +56,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>Über uns | Burning Dezibelz</title>
-  <meta name="description" content="Informationen über die Band und Mitglieder" />
-  <meta name="robots" content="noindex" />
-</svelte:head>
-
 <Navbar />
 
 <SiteHeader text="Über uns" />

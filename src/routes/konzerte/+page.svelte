@@ -1,10 +1,17 @@
 <script>
   import { goto } from "$app/navigation";
+  import { blur, crossfade, draw, fade, fly, scale, slide } from "svelte/transition";
   import Footer from "$lib/components/Footer.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import dayjs from "dayjs";
   import { onMount } from "svelte";
+  import ky from "ky";
+
+  /**
+   * @type {"new" | "old"}
+   */
+  let activeTab = $state("new");
 
   let { data } = $props();
   let concerts = $state(data.concerts);
@@ -23,6 +30,19 @@
     }
 
     return concert || null;
+  });
+
+  $effect(() => {
+    if (activeTab == "new") {
+      ky.get("/api/concerts")
+        .json()
+        .then((res) => {
+          concerts = res.concerts;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   });
 
   $effect(() => {
@@ -65,12 +85,6 @@
     }
   }
 </script>
-
-<svelte:head>
-  <title>Konzert-Übersicht | Burning Dezibelz</title>
-  <meta name="description" content="Übersicht aller Konzerte" />
-  <meta name="robots" content="index, follow" />
-</svelte:head>
 
 <svelte:window onkeydowncapture={handleKeyDown} bind:innerWidth />
 
@@ -124,7 +138,15 @@
       <span>Keine Konzerte gefunden!</span>
     </div>
   {:else if concerts.length > 0 && !stillLoading}
-    <div class="w-full resize-x overflow-y-visible md:max-w-[1400px]">
+    <div class="w-full resize-x justify-center overflow-y-visible md:max-w-[1400px]">
+      <div role="tablist" class="dy-tabs dy-tabs-bordered mx-auto self-center pb-5 md:w-[50%]">
+        <button role="tab" class="dy-tab {activeTab == 'new' ? 'dy-tab-active' : ''}" onclick={() => (activeTab = "new")}
+          >Anstehend</button
+        >
+        <button role="tab" class="dy-tab {activeTab == 'old' ? 'dy-tab-active' : ''}" onclick={() => (activeTab = "old")}
+          >Archiv</button
+        >
+      </div>
       <table class="w-full table-auto text-center">
         <thead>
           <tr>
@@ -227,12 +249,5 @@
     <button>close</button>
   </form>
 </dialog>
-
-<!-- <div class="dy-divider"></div>
-<div class="dy-join self-center">
-  <button id="pageBack" class="dy-btn dy-join-item" disabled={concerts.length == 0 || stillLoading}>«</button>
-  <button id="pageSet" class="dy-btn dy-join-item" disabled={concerts.length == 0 || stillLoading}>Page {data.pageNumber}</button>
-  <button id="pageForward" class="dy-btn dy-join-item" disabled={concerts.length == 0 || stillLoading}>»</button>
-</div> -->
 
 <Footer />

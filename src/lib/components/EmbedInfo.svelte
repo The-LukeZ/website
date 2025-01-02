@@ -1,9 +1,11 @@
 <script>
+  import { page } from "$app/stores";
+
   /**
    * @typedef {Object} EmbedInfoProps
-   * @property {string?} [siteName]
-   * @property {string?} [optionalDescription]
-   * @property {string?} [robots] - The robots meta tag value
+   * @property {string?} [siteName] - Default: "Burning Dezibelz"
+   * @property {string?} [optionalDescription] - Default: "Die offizielle Website der Band Burning Dezibelz"
+   * @property {string?} [robots] - The robots meta tag value | Default: "index"
    */
 
   /** @type {EmbedInfoProps} */
@@ -12,22 +14,22 @@
   const data = {
     title: "Burning Dezibelz" + (siteName ? ` | ${siteName}` : ""),
     description: optionalDescription ?? "Die offizielle Website der Band Burning Dezibelz",
-    bigImageUrl: "https://burningdezibelz.de/burningdezibelz_logo.png",
+    bigImageUrl: "/burningdezibelz_logo.png",
     url: "https://burningdezibelz.de/",
-    icon: "https://burningdezibelz.de/burningdezibelz_favicon.png",
+    icon: "/burningdezibelz_favicon.png",
     keywords: ["Rock", "Metal", "Zwickau", "Band", "Musik"],
   };
 </script>
 
 <svelte:head>
   <!-- Open Graph protocol tags -->
+  <meta property="og:site_name" content={siteName} />
   <meta property="og:title" content={data.title} />
   <meta property="og:description" content={data.description} />
   <meta property="og:image" content={data.bigImageUrl} />
-  <meta property="og:url" content={data.url} />
+  <meta property="og:url" content={$page.url.toString()} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:site_name" content={siteName} />
 
   <!-- Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image" />

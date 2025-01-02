@@ -5,6 +5,6 @@
   let { children } = $props();
 </script>
 
-<EmbedInfo siteName="Über uns" optionalDescription="Bandinfo der Burning Dezibelz" />
+<EmbedInfo siteName="Über uns" optionalDescription="Bandinfo der Burning Dezibelz" robots="index, follow" />
 
 {@render children()}
