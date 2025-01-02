@@ -165,89 +165,94 @@
   {/if}
 </div>
 
-<dialog id="concertModal" class="dy-modal">
-  <div class="dy-modal-box">
-    <form method="dialog" onsubmit={closeModal} class="flex justify-end">
-      <button class="dy-btn dy-btn-square z-[100]">
-        <img src="/cross.svg" alt="X" class="dy-btn dy-btn-md" />
-      </button>
-    </form>
+{#if concertData}
+  <dialog id="concertModal" class="dy-modal">
+    <div class="dy-modal-box">
+      <form method="dialog" onsubmit={closeModal} class="flex justify-end">
+        <button class="dy-btn dy-btn-square z-[100]">
+          <img src="/cross.svg" alt="X" class="dy-btn dy-btn-md" />
+        </button>
+      </form>
 
-    <!-- ? Maybe add 'class="border-r border-base-300"' to each first table cell -->
+      <!-- ? Maybe add 'class="border-r border-base-300"' to each first table cell -->
 
-    {#snippet concertDetailRow(/** @type {string} */ key, /** @type {string | Array} */ value)}
-      <tr>
-        <td style="font-weight: bold; text-align: center; font-size: larger;">{key}</td>
-        <td style="text-align: center;">{@html Array.isArray(value) ? value.join("<br />") : value}</td>
-      </tr>
-    {/snippet}
+      {#snippet concertDetailRow(/** @type {string} */ key, /** @type {string | Array} */ value, align = "center")}
+        <tr>
+          <td style="font-weight: bold; text-align: {align}; font-size: larger;">{key}</td>
+          <td style="text-align: {align};">{@html Array.isArray(value) ? value.join("<br />") : value}</td>
+        </tr>
+      {/snippet}
 
-    <!-- Items -->
-    <div class="flex flex-col items-center gap-4">
-      <table class="dy-table dy-table-md border-collapse">
-        <tbody>
-          <tr>
-            <td style="font-weight: bold; text-align: center; font-size: x-large;" class="py-4" colspan="2"
-              >{concertData?.name}</td
-            >
-          </tr>
-          {@render concertDetailRow("Datum", dayjs(concertData?.date).toDate().toLocaleDateString())}
-          {@render concertDetailRow("Uhrzeit", dayjs(concertData?.date).toDate().toLocaleTimeString())}
-          {@render concertDetailRow("Ort", [
-            concertData?.location?.name,
-            concertData?.location?.address,
-            `${concertData?.location?.postalCode} ${concertData?.location?.city}`,
-          ])}
-          {#if concertData?.abendkasse || concertData?.tickets}
+      <!-- Items -->
+      <div class="flex flex-col items-center gap-4">
+        <table class="dy-table dy-table-md border-collapse">
+          <tbody>
             <tr>
-              <td style="font-weight: bold; text-align: center; font-size: larger;">Tickets</td>
-              <td style="text-align: center;" class="flex flex-col space-y-2">
-                {#if concertData?.abendkasse}
-                  <span>An der Abendkasse</span>
-                {/if}
-                {#if concertData?.tickets}
-                  <span>
-                    <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm"
-                      >Zu den Tickets</a
+              <td style="font-weight: bold; text-align: center; font-size: x-large;" class="py-4" colspan="2"
+                >{concertData?.name}</td
+              >
+            </tr>
+            {@render concertDetailRow("Datum", dayjs(concertData?.date).toDate().toLocaleDateString())}
+            {@render concertDetailRow("Uhrzeit", dayjs(concertData?.date).toDate().toLocaleTimeString())}
+            {@render concertDetailRow("Ort", [
+              concertData?.location?.name,
+              concertData?.location?.address,
+              `${concertData?.location?.postalCode} ${concertData?.location?.city}`,
+            ])}
+            {#if concertData?.abendkasse || concertData?.tickets}
+              <tr>
+                <td style="font-weight: bold; text-align: center; font-size: larger;">Tickets</td>
+                <td style="text-align: center;" class="flex flex-col space-y-2">
+                  {#if concertData?.abendkasse}
+                    <span>An der Abendkasse</span>
+                  {/if}
+                  {#if concertData?.tickets}
+                    <span>
+                      <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm"
+                        >Zu den Tickets</a
+                      >
+                    </span>
+                  {/if}
+                </td>
+              </tr>
+            {/if}
+            {#if concertData?.price}
+              {@render concertDetailRow("Preis", concertData?.price.toString())}
+            {/if}
+            {#if concertData?.notes}
+              {@render concertDetailRow("Hinweise", concertData?.notes.join("<br />"))}
+            {/if}
+            {#if concertData?.link}
+              <tr>
+                <td colspan="2" class="items-center text-center">
+                  <a href={concertData?.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-5"
                     >
-                  </span>
-                {/if}
-              </td>
-            </tr>
-          {/if}
-          {#if concertData?.price}
-            {@render concertDetailRow("Preis", concertData?.price.toString())}
-          {/if}
-          {#if concertData?.link}
-            <tr>
-              <td colspan="2" class="items-center text-center">
-                <a href={concertData?.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                    />
-                  </svg>
-                  <span class="ml-2">Zur Location</span>
-                </a>
-              </td>
-            </tr>
-          {/if}
-        </tbody>
-      </table>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                    <span class="ml-2">Zur Location</span>
+                  </a>
+                </td>
+              </tr>
+            {/if}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <form method="dialog" class="dy-modal-backdrop" onsubmit={closeModal}>
-    <button>close</button>
-  </form>
-</dialog>
+    <form method="dialog" class="dy-modal-backdrop" onsubmit={closeModal}>
+      <button>close</button>
+    </form>
+  </dialog>
+{/if}
 
 <Footer />
