@@ -24,7 +24,7 @@
     "date": "2025-02-08T15:00:00.000Z",
     "location": {
       "_id": "apfel2",
-      "name": "Sepherds Pub",
+      "name": "Shepherds Pub Zwickau",
       "address": "Marienthaler Str. 98",
       "city": "Zwickau",
       "postalCode": "08060",
@@ -32,5 +32,24 @@
       "province": "Sachsen"
     },
     "price": null
+  },
+  {
+    "_id": "banane3",
+    "name": "Trouid Festival",
+    "link": "https://www.trouidfest.com/",
+    "date": "2025-03-08T15:00:00.000Z",
+    "location": {
+      "_id": "apfel3",
+      "name": "Trouid Festival",
+      "address": "Naundorf 4",
+      "city": "Gößnitz",
+      "postalCode": "04639",
+      "country": "Deutschland",
+      "province": "Sachsen"
+    },
+    "price": 25.0,
+    "tickets": "https://www.trouidfest.com/",
+    "abendkasse": false,
+    "notes": ["Tickets für Samstag an der Abendkasse", "Freitags ist der Eintritt frei", "Weiteres auf der Website"]
   }
 ]
