@@ -5,8 +5,12 @@ declare global {
     // interface Error {}
     interface Locals {
       loggedIn: boolean;
+      year: number;
     }
-    // interface PageData {}
+    interface PageData {
+      date?: Date;
+      year?: number;
+    }
     // interface PageState {}
     // interface Platform {}
   }

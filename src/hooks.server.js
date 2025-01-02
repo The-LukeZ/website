@@ -1,5 +1,6 @@
 import { dbConnect } from "$lib/utils/dbInternal";
 import verifyLogin, { responseOK } from "$lib/utils/verifyLogin";
+import ky from "ky";
 
 /** @type {import('@sveltejs/kit').ServerInit} */
 export async function init() {
