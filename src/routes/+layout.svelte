@@ -1,4 +1,5 @@
 <script>
+  import "../app.css"; // ! Tailwind Stuff - Do not remove
   import { page } from "$app/state";
   import { onMount } from "svelte";
   import EmbedInfo from "$lib/components/EmbedInfo.svelte";
