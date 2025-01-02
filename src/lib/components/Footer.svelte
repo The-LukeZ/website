@@ -1,5 +1,26 @@
 <script>
   import { page } from "$app/state";
+  import { env } from "$env/dynamic/public";
+  import ky from "ky";
+  import { onMount } from "svelte";
+
+  let year = $state(2025);
+
+  onMount(async () => {
+    if (!page.data.year) {
+      console.debug("Fetching year from server...");
+      ky.get(env.PUBLIC_BASE_URL + "/api/date")
+        .json()
+        .then((res) => {
+          year = res.year;
+          page.data.year = res.year;
+          page.data.date = res.date;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  });
 </script>
 
 <div class="relative bottom-0 left-0 right-0 mt-auto min-h-5"></div>
@@ -19,7 +40,9 @@
     {@render footerLink("https://github.com/The-LukeZ/burningdezibelz", "GitHub", "_blank")}
   </nav>
   <aside>
-    <p>Copyright © {page.data.year?.toString()} - Alle Rechte vorbehalten</p>
+    <p id="copyright">
+      Copyright © <span id="year">{year}</span> - Alle Rechte vorbehalten
+    </p>
   </aside>
   <nav class="grid grid-flow-col gap-4">
     <a class="dy-link-hover dy-link text-xs" href="/dash/login">Intern</a>
