@@ -1,5 +1,6 @@
 <script>
   import { page } from "$app/state";
+  import { PUBLIC_BASE_URL } from "$env/static/public";
 
   /**
    * @typedef {Object} EmbedInfoProps
@@ -14,9 +15,9 @@
   const data = {
     title: "Burning Dezibelz" + (siteName ? ` | ${siteName}` : ""),
     description: optionalDescription ?? "Die offizielle Website der Band Burning Dezibelz",
-    bigImageUrl: "/burningdezibelz_logo.png",
-    url: "https://burningdezibelz.de/",
-    icon: "/burningdezibelz_favicon.png",
+    bigImageUrl: PUBLIC_BASE_URL + "/burningdezibelz_logo.png",
+    url: PUBLIC_BASE_URL,
+    icon: PUBLIC_BASE_URL + "/favicon.png",
     keywords: ["Rock", "Metal", "Zwickau", "Band", "Musik"],
   };
 </script>
