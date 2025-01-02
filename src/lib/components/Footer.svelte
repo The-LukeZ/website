@@ -1,26 +1,5 @@
 <script>
   import { page } from "$app/state";
-  import { env } from "$env/dynamic/public";
-  import ky from "ky";
-  import { onMount } from "svelte";
-
-  let year = $state(2025);
-
-  onMount(async () => {
-    if (!page.data.year) {
-      console.debug("Fetching year from server...");
-      ky.get(env.PUBLIC_BASE_URL + "/api/date")
-        .json()
-        .then((res) => {
-          year = res.year;
-          page.data.year = res.year;
-          page.data.date = res.date;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  });
 </script>
 
 <div class="relative bottom-0 left-0 right-0 mt-auto min-h-5"></div>
@@ -41,7 +20,7 @@
   </nav>
   <aside>
     <p id="copyright">
-      Copyright © <span id="year">{year}</span> - Alle Rechte vorbehalten
+      Copyright © <span id="year">{page.data.year}</span> - Alle Rechte vorbehalten
     </p>
   </aside>
   <nav class="grid grid-flow-col gap-4">

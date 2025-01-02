@@ -1,9 +1,9 @@
 <script>
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
   /**
    * @typedef {Object} EmbedInfoProps
-   * @property {string?} [siteName] - Default: "Burning Dezibelz"
+   * @property {string?} [siteName] - `"Burning Dezibelz" + (siteName ? "| {siteName}" : "")`
    * @property {string?} [optionalDescription] - Default: "Die offizielle Website der Band Burning Dezibelz"
    * @property {string?} [robots] - The robots meta tag value | Default: "index"
    */
@@ -27,7 +27,7 @@
   <meta property="og:title" content={data.title} />
   <meta property="og:description" content={data.description} />
   <meta property="og:image" content={data.bigImageUrl} />
-  <meta property="og:url" content={$page.url.toString()} />
+  <meta property="og:url" content={page.url.toString()} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="de_DE" />
 

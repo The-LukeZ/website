@@ -1,9 +1,9 @@
 <script>
   import { goto } from "$app/navigation";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { onMount } from "svelte";
 
-  let currentPath = $page.url.pathname;
+  let currentPath = page.url.pathname;
 
   let isOpen = $state(false);
   let isHidden = $state(false);
