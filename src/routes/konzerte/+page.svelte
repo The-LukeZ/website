@@ -8,6 +8,7 @@
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import dayjs from "dayjs";
   import ky from "ky";
+  import { prettyURL } from "$lib/utils/utilityFuncs.js";
 
   /**
    * @type {"new" | "old"}
@@ -21,6 +22,9 @@
   let _error = $state(null);
 
   let concertId = $state(page.url.hash?.slice(1) ?? null);
+  /**
+   * @type {DBModels.Concert | null}
+   */
   let concertData = $state(null);
 
   $effect(() => {
@@ -102,9 +106,13 @@
 {#snippet concertRow(/** @type {any} */ concert)}
   <tr class="dy-hover bg-base-200 p-2">
     <td class="concertTableCell w-[35%]">{dayjs(concert.date).toDate().toLocaleDateString("de", { dateStyle: "full" })}</td>
-    <td class="concertTableCell w-[40%] text-lg font-bold text-primary md:dy-link-hover"
-      ><a class="dy-link-hover dy-link" href={concert.link} target="_blank">{concert.name}</a></td
-    >
+    <td class="concertTableCell w-[40%]">
+      <div class="dy-tooltip-buttom dy-tooltip dy-tooltip-info" data-tip={prettyURL(concert.link)}>
+        <a class="dy-link-hover dy-link text-lg font-bold text-primary md:dy-link-hover" href={concert.link} target="_blank">
+          {concert.name}
+        </a>
+      </div>
+    </td>
     <td class="concertTableCell w-[25%]"
       ><button
         aria-label="Checkbox"
@@ -176,16 +184,16 @@
   {/if}
 </div>
 
-<dialog id="concertModal" class="dy-modal">
-  <div class="dy-modal-box">
-    <form method="dialog" class="flex justify-end" onsubmit={closeModal}><XButton /></form>
+{#snippet concertDetailRow(/** @type {string} */ key, /** @type {string | Array} */ value, align = "center")}
+  <tr>
+    <td style="font-weight: bold; text-align: {align}; font-size: larger;">{key}</td>
+    {@html `<td style="text-align: ${align};">` + (Array.isArray(value) ? value.join("<br />") : value) + "</td>"}
+  </tr>
+{/snippet}
 
-    {#snippet concertDetailRow(/** @type {string} */ key, /** @type {string | Array} */ value, align = "center")}
-      <tr>
-        <td style="font-weight: bold; text-align: {align}; font-size: larger;">{key}</td>
-        {@html `<td style="text-align: ${align};">` + (Array.isArray(value) ? value.join("<br />") : value) + "</td>"}
-      </tr>
-    {/snippet}
+<dialog id="concertModal" class="dy-modal dy-modal-bottom sm:dy-modal-middle" transition:slide>
+  <div class="dy-modal-box w-full md:max-w-[50%]">
+    <form method="dialog" class="flex justify-end" onsubmit={closeModal}><XButton /></form>
 
     <!-- Items -->
     <div class="flex flex-col items-center gap-4">
@@ -212,7 +220,7 @@
                   <span>An der Abendkasse</span>
                 {/if}
                 {#if concertData?.tickets}
-                  <span>
+                  <span class="dy-tooltip dy-tooltip-bottom dy-tooltip-info" data-tip={prettyURL(concertData.tickets)}>
                     <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm">
                       <ExternalLinkIcon sizeMultiplier={5} />
                       <span>Zu den Tickets</span>
@@ -231,10 +239,12 @@
           {#if concertData?.link}
             <tr>
               <td colspan="2" class="items-center text-center">
-                <a href={concertData?.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
-                  <ExternalLinkIcon sizeMultiplier={5} />
-                  <span class="ml-2">Zur Location</span>
-                </a>
+                <div class="dy-tooltip dy-tooltip-top dy-tooltip-info" data-tip={prettyURL(concertData.link)}>
+                  <a href={concertData.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
+                    <ExternalLinkIcon sizeMultiplier={5} />
+                    <span class="ml-2">Zur Location</span>
+                  </a>
+                </div>
               </td>
             </tr>
           {/if}
