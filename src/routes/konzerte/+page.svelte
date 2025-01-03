@@ -4,6 +4,7 @@
   import { slide } from "svelte/transition";
   import XButton from "$lib/components/XButton.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
+  import ExternalLinkIcon from "$lib/components/ExternalLinkIcon.svelte";
   import SiteHeader from "$lib/components/SiteHeader.svelte";
   import dayjs from "dayjs";
   import ky from "ky";
@@ -17,9 +18,7 @@
   let concerts = $state(data.concerts);
   let stillLoading = $derived(concerts == null);
   let innerWidth = $state(0);
-  let _error = $state({
-    message: "test",
-  });
+  let _error = $state(null);
 
   let concertId = $state(page.url.hash?.slice(1) ?? null);
   let concertData = $state(null);
@@ -208,21 +207,23 @@
             <tr>
               <td style="font-weight: bold; text-align: center; font-size: larger;">Tickets</td>
               <td style="text-align: center;" class="flex flex-col space-y-2">
+                <!-- TODO: Find solution for both and none -->
                 {#if concertData?.abendkasse}
                   <span>An der Abendkasse</span>
                 {/if}
                 {#if concertData?.tickets}
                   <span>
-                    <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm"
-                      >Zu den Tickets</a
-                    >
+                    <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm">
+                      <ExternalLinkIcon />
+                      <span>Zu den Tickets</span>
+                    </a>
                   </span>
                 {/if}
               </td>
             </tr>
           {/if}
           {#if concertData?.price}
-            {@render concertDetailRow("Preis", concertData?.price.toString())}
+            {@render concertDetailRow("Preis", `${concertData?.price?.toFixed(2).replace(".", ",")} €`)}
           {/if}
           {#if concertData?.notes}
             {@render concertDetailRow("Hinweise", concertData?.notes.join("<br />"))}
@@ -231,20 +232,7 @@
             <tr>
               <td colspan="2" class="items-center text-center">
                 <a href={concertData?.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                    />
-                  </svg>
+                  <ExternalLinkIcon />
                   <span class="ml-2">Zur Location</span>
                 </a>
               </td>
