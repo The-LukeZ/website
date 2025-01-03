@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { page } from "$app/state";
   import { onMount } from "svelte";
+  import XButton from "./XButton.svelte";
 
   let currentPath = page.url.pathname;
 
@@ -28,18 +29,17 @@
 
   function logout() {
     console.log("Logging out");
-
     goto("/dash/login?logout=true");
   }
 
   onMount(() => {
     window.addEventListener("scroll", () => {
-      if (newScrollPos > oldScrollPos && !isHidden) {
-        document.querySelector("header")?.classList.add("translate-y-[-105%]");
-        isHidden = true;
-      } else if (newScrollPos < oldScrollPos && isHidden) {
+      if (newScrollPos < oldScrollPos && isHidden) {
         document.querySelector("header")?.classList.remove("translate-y-[-105%]");
         isHidden = false;
+      } else if (newScrollPos > 0 && newScrollPos > oldScrollPos && !isHidden) {
+        document.querySelector("header")?.classList.add("translate-y-[-105%]");
+        isHidden = true;
       }
       oldScrollPos = newScrollPos;
     });
@@ -124,9 +124,9 @@
   <dialog id="mobile_navbar" class="dy-modal">
     <div class="dy-modal-box">
       <form method="dialog" onsubmit={toggleNavbar}>
-        <button class="dy-btn dy-btn-square absolute right-4 top-4">
-          <img src="/cross.svg" alt="X" class="dy-btn dy-btn-md" />
-        </button>
+        <div class="absolute right-4 top-4">
+          <XButton stroke="white" />
+        </div>
       </form>
 
       <!-- Items -->

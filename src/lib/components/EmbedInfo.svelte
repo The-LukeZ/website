@@ -17,7 +17,6 @@
     description: optionalDescription ?? "Die offizielle Website der Band Burning Dezibelz",
     bigImageUrl: PUBLIC_BASE_URL + "/burningdezibelz_logo.png",
     url: PUBLIC_BASE_URL,
-    icon: PUBLIC_BASE_URL + "/favicon.png",
     keywords: ["Rock", "Metal", "Zwickau", "Band", "Musik"],
   };
 </script>
