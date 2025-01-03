@@ -50,6 +50,11 @@
     "price": 25.0,
     "tickets": "https://www.trouidfest.com/",
     "abendkasse": false,
-    "notes": ["Tickets für Samstag an der Abendkasse", "Freitags ist der Eintritt frei", "Weiteres auf der Website"]
+    "notes": [
+      "Ticketverkauf ist noch nicht gestartet! (Stand: 03.01.25)",
+      "Tickets für Samstag an der Abendkasse",
+      "Freitags ist der Eintritt frei",
+      "Weiteres auf der Website"
+    ]
   }
 ]
