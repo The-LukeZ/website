@@ -1,5 +1,14 @@
 <script>
-  const { size = "5" } = $props();
+  /**
+   * @typedef Props
+   * @prop {number} [sizeMultiplier] - The size multiplier for the icon | Default: `1`
+   */
+
+  /**
+   * @type {Props}
+   */
+  let { sizeMultiplier = 1 } = $props();
+  let size = (0.25 * sizeMultiplier).toFixed(2) + "rem";
 </script>
 
 <svg
@@ -8,7 +17,7 @@
   viewBox="0 0 24 24"
   stroke-width="1.5"
   stroke="currentColor"
-  class="size-{size}"
+  style="width: {size}; height: {size};"
 >
   <path
     stroke-linecap="round"

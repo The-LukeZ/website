@@ -214,7 +214,7 @@
                 {#if concertData?.tickets}
                   <span>
                     <a href={concertData.tickets} role="button" target="_blank" class="dy-btn dy-btn-ghost dy-btn-sm">
-                      <ExternalLinkIcon />
+                      <ExternalLinkIcon sizeMultiplier={5} />
                       <span>Zu den Tickets</span>
                     </a>
                   </span>
@@ -232,7 +232,7 @@
             <tr>
               <td colspan="2" class="items-center text-center">
                 <a href={concertData?.link} role="button" target="_blank" class="dy-btn dy-btn-outline dy-btn-sm">
-                  <ExternalLinkIcon />
+                  <ExternalLinkIcon sizeMultiplier={5} />
                   <span class="ml-2">Zur Location</span>
                 </a>
               </td>
