@@ -81,8 +81,8 @@
         > unser Debut.
       </PWrapper>
       <PWrapper>
-        Kurz darauf folgte schon der erst Bandmitgliederwechsel. Max, <span class="italic">ehem. Schlagzeuger</span>, verließ
-        im Frühjahr 2024 die Band, woraufhin Luca dazu kam; Er ist bis heute dabei.
+        Kurz darauf folgte schon der erst Bandmitgliederwechsel. Max, <span class="italic">ehem. Schlagzeuger</span>, verließ im
+        Frühjahr 2024 die Band, woraufhin Luca dazu kam; Er ist bis heute dabei.
       </PWrapper>
       <PWrapper>Diese Besetzung hält bis heute an und wir spielen regelmäßig in Zwickau und Umgebung.</PWrapper>
       <PWrapper>
@@ -149,5 +149,3 @@
     </form>
   </dialog>
 {/if}
-
-<Footer />

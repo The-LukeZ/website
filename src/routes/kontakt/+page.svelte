@@ -49,5 +49,3 @@
     <button type="submit" class="dy-btn dy-btn-outline float-right mt-5 justify-self-end">Senden</button>
   </form>
 </div>
-
-<Footer />

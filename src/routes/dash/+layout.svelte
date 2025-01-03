@@ -8,5 +8,3 @@
 <EmbedInfo siteName="Dashboard" optionalDescription="Dashboard" robots="noindex, nofollow" />
 
 {@render children()}
-
-<Footer />

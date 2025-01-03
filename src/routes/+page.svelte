@@ -112,5 +112,3 @@
     </SectionWrapper>
   </main>
 </div>
-
-<Footer />

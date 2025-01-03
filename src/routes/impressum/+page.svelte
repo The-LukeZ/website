@@ -31,5 +31,3 @@
     </ul>
   </article>
 </div>
-
-<Footer />
