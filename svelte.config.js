@@ -5,6 +5,9 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 export default {
   kit: {
     adapter: adapter({ out: "build", precompress: true }),
+    prerender: {
+      handleHttpError: "warn",
+    },
   },
   preprocess: vitePreprocess(),
   runes: true,
