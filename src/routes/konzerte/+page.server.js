@@ -8,7 +8,7 @@ export const prerender = false;
  * 3. if an ID (#ID) is given, also add this concert to the state
  */
 
-export async function load({ url }) {
+export async function load() {
   // TODO: load concerts from a real API
 
   /** @type {DBModels.Concert[]} */
@@ -17,6 +17,5 @@ export async function load({ url }) {
 
   return {
     concerts: concerts.filter((concert) => dayjs(concert.date).isAfter(nowTs)),
-    highlightedConcert: null,
   };
 }
