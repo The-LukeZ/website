@@ -1,10 +1,8 @@
-import ky from "ky";
-import { PUBLIC_BASE_URL } from "$env/static/public";
+import { getDate } from "$lib/utils/utilityFuncs";
 
 export async function load() {
-  const _res = await ky.get(PUBLIC_BASE_URL + "/api/date").json();
+  const _data = getDate();
   return {
-    date: _res.date,
-    year: _res.year,
+    ..._data,
   };
 }
