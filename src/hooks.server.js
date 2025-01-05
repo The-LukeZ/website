@@ -1,6 +1,5 @@
 import { dbConnect } from "$lib/utils/dbInternal";
 import verifyLogin, { responseOK } from "$lib/utils/verifyLogin";
-import ky from "ky";
 
 /** @type {import('@sveltejs/kit').ServerInit} */
 export async function init() {
@@ -15,3 +14,5 @@ export async function handle({ event, resolve }) {
   const response = await resolve(event);
   return response;
 }
+
+// export async function handleError() {}
