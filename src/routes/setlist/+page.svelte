@@ -1,12 +1,7 @@
 <script>
   import Navbar from "$lib/components/Navbar.svelte";
-  import { onMount } from "svelte";
-  // let { _songs } = $props();
-  let songs = $state([]);
-
-  onMount(async () => {
-    songs = (await import("$lib/songs.json")).default;
-  });
+  let { data } = $props();
+  let songs = data.songs;
 </script>
 
 <Navbar />
