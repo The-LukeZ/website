@@ -1,8 +1,12 @@
 <script>
-  import Footer from "$lib/components/Footer.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
-  import songs from "$lib/songs.json";
-  songs.sort((a, b) => a.title.localeCompare(b.title));
+  import { onMount } from "svelte";
+  // let { _songs } = $props();
+  let songs = $state([]);
+
+  onMount(async () => {
+    songs = (await import("$lib/songs.json")).default;
+  });
 </script>
 
 <Navbar />
@@ -14,7 +18,7 @@
       <tr>
         <th class="w-[5%]">Nr.</th>
         <th class="text-right text-xl">Titel</th>
-        <th class="text-xl">Interpret</th>
+        <th class="text-left text-xl">Interpret</th>
       </tr>
     </thead>
     <tbody>
