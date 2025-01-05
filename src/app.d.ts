@@ -2,17 +2,17 @@
 // for information about these interfaces
 declare global {
   namespace App {
-    // interface Error {}
+    interface Error {}
     interface Locals {
       loggedIn: boolean;
       year: number;
     }
-    interface PageData {
-      date?: Date;
-      year?: number;
-    }
-    // interface PageState {}
-    // interface Platform {}
+    // interface PageData {
+    //   date?: Date;
+    //   year?: number;
+    // }
+    interface PageState {}
+    interface Platform {}
   }
 
   namespace DBModels {
