@@ -45,6 +45,6 @@
     "marked": "^15.0.3",
     "mongoose": "^8.9.3",
     "rate-limiter-flexible": "^5.0.4",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.4"
   }
 }
