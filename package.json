@@ -6,7 +6,7 @@
     "url": "http://github.com/The-LukeZ/burningdezibelz"
   },
   "scripts": {
-    "prod": "HOST=localhost PORT=4000 PUBLIC_BASE_URL=https://burningdezibelz.de node build/index.js",
+    "prod": "HOST=localhost PORT=4000 PUBLIC_BASE_URL=https://burningdezibelz.de ORIGIN=https://burningdezibelz.de node build/index.js",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
